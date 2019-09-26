@@ -1,8 +1,6 @@
 require "./spec_helper"
 
-describe Js::Minifier do
-  # TODO: Write tests
-
+describe JsMinifier do
   it "works" do
     false.should eq(true)
   end
