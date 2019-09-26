@@ -106,5 +106,5 @@ var default_options = {
     wrap_iife        : false
   },
   wrap: false
-}
+};
 JS
