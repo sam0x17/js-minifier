@@ -14,7 +14,7 @@ module JsMinifier
   def self.minify!(source : String, path : String?)
     source = source.gsub("\"", "\\\"")
     source = source.gsub("\n", "\\n")
-    @@ctx.eval!("var res = minify(\"#{source}\");\nprint(JSON.stringify(res));\n")
+    @@ctx.eval!("var res = minify(\"#{source}\");")
     @@ctx.eval!("JSON.stringify(res.error)")
     error = @@ctx.get_string(-1)
     @@ctx.eval!("res.code")
