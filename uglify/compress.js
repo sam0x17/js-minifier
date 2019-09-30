@@ -41,7 +41,6 @@
 
  ***********************************************************************/
 
-"use strict";
 
 function Compressor(options, false_by_default) {
     if (!(this instanceof Compressor))

@@ -1,5 +1,3 @@
-"use strict";
-
 var to_ascii = typeof atob == "undefined" ? function(b64) {
     return new Buffer(b64, "base64").toString();
 } : atob;

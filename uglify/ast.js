@@ -41,7 +41,6 @@
 
  ***********************************************************************/
 
-"use strict";
 
 function DEFNODE(type, props, methods, base) {
     if (typeof base === "undefined") base = AST_Node;

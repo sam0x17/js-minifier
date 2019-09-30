@@ -41,7 +41,6 @@
 
  ***********************************************************************/
 
-"use strict";
 
 function SymbolDef(scope, orig, init) {
     this.name = orig.name;

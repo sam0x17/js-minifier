@@ -41,7 +41,6 @@
 
  ***********************************************************************/
 
-"use strict";
 
 function find_builtins(reserved) {
     // NaN will be included due to Number.NaN

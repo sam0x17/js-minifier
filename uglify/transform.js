@@ -41,7 +41,6 @@
 
  ***********************************************************************/
 
-"use strict";
 
 function TreeTransformer(before, after) {
     TreeWalker.call(this);
