@@ -1,4 +1,3 @@
-#require "duktape/runtime"
 require "duktape"
 require "./uglify"
 require "./syntax_error"
