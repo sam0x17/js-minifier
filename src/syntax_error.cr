@@ -14,9 +14,9 @@ module JsMinifier
     def initialize(json_dump : String)
       data = JSON.parse(json_dump)
       @error_message = data["message"].as_s
-      @line = data["line"].as_i
-      @col = data["col"].as_i
-      @pos = data["pos"].as_i
+      @line = data["line"]? ? data["line"].as_i : 0
+      @col = data["col"]? ? data["col"].as_i : 0
+      @pos = data["pos"]? ? data["pos"].as_i : 0
     end
 
     def message

@@ -11,10 +11,16 @@ module JsMinifier
   end
   @@ctx : Duktape::Sandbox = initialize_context
 
-  def self.minify!(source : String, path : String?)
+  def self.minify!(source : String, path : String?, options : JSON::Any?)
     source = source.gsub("\"", "\\\"")
     source = source.gsub("\n", "\\n")
-    @@ctx.eval!("var res = minify(\"#{source}\");")
+    if options
+      options = options.to_json.gsub("'", "\\'")
+      puts "var res = minify(\"#{source}\", JSON.stringify('#{options}'));"
+      @@ctx.eval!("var res = minify(\"#{source}\", JSON.stringify('#{options}'));")
+    else
+      @@ctx.eval!("var res = minify(\"#{source}\");")
+    end
     @@ctx.eval!("JSON.stringify(res.error)")
     error = @@ctx.get_string(-1)
     @@ctx.eval!("res.code")
@@ -27,7 +33,11 @@ module JsMinifier
     minified
   end
 
+  def self.minify!(source : String, options : JSON::Any?)
+    minify!(source, nil, options)
+  end
+
   def self.minify!(source : String)
-    minify!(source, nil)
+    minify!(source, nil, nil)
   end
 end
